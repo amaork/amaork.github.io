@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://amaork.me/"/>
-  <updated>2017-10-28T09:34:59.000Z</updated>
+  <updated>2017-10-28T13:52:30.000Z</updated>
   <id>http://amaork.me/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo 绑定二级域名</title>
+    <link href="http://amaork.me/2017/10/28/Hexo-%E7%BB%91%E5%AE%9A%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/"/>
+    <id>http://amaork.me/2017/10/28/Hexo-绑定二级域名/</id>
+    <published>2017-10-28T13:25:09.000Z</published>
+    <updated>2017-10-28T13:52:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>上周末把 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 摸索了一遍，部署在了 Github Pages 上，详细过程就不多说了，网上有很多教程。今天要讲讲，如何绑定二级域名。</p><ol><li>首先你需要有一个域名，可以到<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>或国外的<a href="https://sg.godaddy.com/zh/" target="_blank" rel="external">Godaddy</a>购买</li><li>在域名供应商提供的域名解析服务中添加一条 <code>CNAME</code> 记录，指向你博客的 Github Pages 地址例如<code>blog.yourdomain.xxx -&gt; yourname.github.io</code></li><li>在博客目录的 <code>source</code> 目录中添加一个名称为 <code>CNAME</code> 的文件，文件中存放你第二部 <code>CNAME</code> 中添加的域名例如：<code>blog.yourdomain.xxx</code></li><li>打开 Github 存放你博客仓库的设置菜单，找到 Custom domain, 填入你的博客地址，保存</li><li>重新部署到 Github Pages</li></ol><p>经过以上几步，这样当你通过二级域名 <code>blog.yourdomain.xxx</code> 访问博客的时候，经过域名服务器的映射就自动跳转到了 Github Pages 地址。<strong>注意：域名记录的生效需要花费时间，通常不会超过 72 小时</strong></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;上周末把 &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt; 摸索了一遍，部署在了 Github Pages 上，详细过程就不多说了，网上有很多教程。今天要讲讲，如何绑定二级域名。&lt;/p&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://amaork.me/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>我的读书笔记变迁史</title>
