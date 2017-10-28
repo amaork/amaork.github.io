@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Amaork</title>
+  
+  <subtitle>It never gets easier, you just get better.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://amaork.me/"/>
+  <updated>2017-10-28T09:34:59.000Z</updated>
+  <id>http://amaork.me/</id>
+  
+  <author>
+    <name>amaork</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的读书笔记变迁史</title>
+    <link href="http://amaork.me/2017/10/28/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%98%E8%BF%81%E5%8F%B2/"/>
+    <id>http://amaork.me/2017/10/28/我的读书笔记变迁史/</id>
+    <published>2017-10-28T06:19:54.000Z</published>
+    <updated>2017-10-28T09:34:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我读书素来有整理笔记的习惯，总觉得读了一本书之后，不把书中的思想要点和自己的理解，以笔记的形式记录下来，就会很快忘掉。整理读书笔记是个很繁琐的事情，当然，整理读书笔记还是有很多好处的。比如说可以方便地进行定期回顾，加深自己的理解、日后查找资料的时候可以快速检索、可以把当时自己的想法记录下来供日后参考，另外还有增强自己成就感的好处，看着自己整理下来一篇篇的读书笔记，还是很有成就感的。</p><p>在使用 Kindle 之前，我所有的读书笔记都是在<a href="https://book.douban.com/" target="_blank" rel="external">豆瓣读书</a>中整理的，那还是 iPhone 4S 时代，豆瓣推出了一个「豆瓣笔记」的手机应用 （不是现在的「豆瓣阅读」）, 可以在那个应用中整理笔记。只需要填写章节的名称、页码，可以摘抄书中的内容，然后在后面附上自己的读书心得，也可以加照片作为附件，刚好满足了我的需求。然后就一直用了下来，我在「豆瓣笔记」中整理了 19 本书 227 条笔记。可惜好景不长，在豆瓣推出自己的电子书业务「豆瓣阅读」后，就把「豆瓣笔记」这条线给砍了，软件不再更新，后来我换手机之后，就没有继续在那「豆瓣笔记」中整理笔记了。</p><p>这中间还有一段小插曲，任何东西刚推出，需要拓展客户的时候都是很给力的，「豆瓣阅读」也不例外，我记得当时充值很优惠，好像是充 50 当 100 用，记不清楚了。「豆瓣阅读」刚推出的时候，亚马逊的 Kindle 系列电子书还没有正式进入中国，可以在淘宝上买国外的用，不过只能自己复制书进去看，不能在线购买。我尝试「豆瓣阅读」另外一个原因是，它可以把你买的电子书转换成适合 Kindle 6 寸屏的 PDF，然后通过邮件推送给你。不过这个服务也很快就停止运营了，原因是 Kindle 正式在国内上线了。对于喜欢阅读的我，当然是毫不犹豫的来了一个，这就是 Kindle Paperwhite 一代，自此上了亚马逊的船至今。</p><p>经历了「豆瓣笔记」停止更新事件之后，我又尝试了其他的一些服务，比如在 Evernote、OneNote 上整理笔记，不过都不太理想。这些平台虽然可以同步，但都不支持 Markdown 语法，而且内容放在别人平台上很不放心，谁知道将来这些平台什么时候停止运营呢，即便在停止运营前可以把你的内容导出，但自己还要二次处理，还是很麻烦的。</p><p>「豆瓣笔记」停止更新后，我就把自己的读书笔记导出来了，导出为 XML 格式。后来自己用 <a href="http://www.grinninglizard.com/tinyxml2/" target="_blank" rel="external">TinyXML2</a> 写了一个 C++ 命令行小程序 <a href="https://github.com/amaork/doubanNote2Markdown" target="_blank" rel="external">doubanNote2Markdown</a> 把「豆瓣读书」的导出的 xml 文件转换成 Markdown 格式。说实话写的很粗糙，那会儿还没有用 Python 呢，要不用 Python 干这事儿简直太轻松，说不定还能上界面呢。总之，它圆满地完成了任务，我也就没再管它了。转换后的效果如下：</p><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2017-10-28 16.59.39.png" alt="屏幕快照 2017-10-28 16.59.39"></p><p>几经折腾，我发现整理笔记最合适的方式是，将笔记整理成使用 Markdown 语法的文本文件，然后通过某种服务，同步管理这些文件。首先想到的是各种网盘，可惜最好用的 Dropbox 在国内早就不能用了。国内的几家网盘提供商，说实话我不太信任，自己的东西可能随时被删掉。所以个人觉得最稳妥的方法是使用 Git 来管理。如果读书笔记的内容不是私密的，可以在 <a href="https://github.com/" target="_blank" rel="external">Github</a> 中新建一个仓库来管理，如果是私密的，可以存放在自己私有的 Git 服务器上。我目前就是这样做的，当然不是为了存放读书笔记专门建立的 Git 服务器，而是兼用。</p><p>这样做优点就不用说了，说说缺点吧，缺点就是在移动设备上查看的时候，不是很方便。我目前的解决方案是，定期把这些读书笔记整理成 PDF 这样就可以在各种设备上查看了。现在有各种各样的 Markdown 编辑器，可以把 Markdown 转换为 PDF 或 HTML 甚至可以生成静态网站，我目前用的是 <a href="http://zh.mweb.im/" target="_blank" rel="external">MWeb</a>，感觉不错，而且支持<a href="https://www.qiniu.com/" target="_blank" rel="external">七牛</a>做图床 (MWeb 看到了，请给我打广告费(^_^))</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我读书素来有整理笔记的习惯，总觉得读了一本书之后，不把书中的思想要点和自己的理解，以笔记的形式记录下来，就会很快忘掉。整理读书笔记是个很繁琐的事情，当然，整理读书笔记还是有很多好处的。比如说可以方便地进行定期回顾，加深自己的理解、日后查找资料的时候可以快速检索、可以把当时自
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://amaork.me/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博客正式上线</title>
+    <link href="http://amaork.me/2017/10/21/%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF/"/>
+    <id>http://amaork.me/2017/10/21/博客正式上线/</id>
+    <published>2017-10-21T13:58:11.000Z</published>
+    <updated>2017-10-24T13:50:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>早在去年就有了写博客的想法，一方面，想把自己碎碎念的想法，和日常工作中遇到的问题和解决思路整理起来，好方便日后回顾。另外一方面，想借助互联网这个开放的平台，扩大自己的影响力，同时多结识志同道合的朋友。</p><p>去年的时候研究了一阵子 <a href="https://www.djangoproject.com/" target="_blank" rel="external">Django</a> + <a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a> + VPS 的方案，还做了几个 <a href="https://github.com/amaork/DjangoStudio" target="_blank" rel="external">Deom</a>。感觉用 <code>Django</code> 做个人博客有点儿大材小用，而且很多东西需要自己捣鼓，特别是 Markdown 渲染这块儿是比较头疼的，再后来因为有其他事情耽搁，就放下。</p><p>直到今年接触到了 <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> 这个平台，发现用它做个人博客真的是太合适不过了，就像它宣称的那样小巧、快捷、支持 Markdown 而且可以部署在 <code>Github</code> 上。于是，今天下午就花了一下午的时间把这个捣鼓上了。我是大学毕业后半路出家，搞嵌入式软件开发的，对前端这块，实在是一窍不通。好在有许多人把自己 <code>Hexo</code> 使用的主题分享出来了，要特别感谢 <a href="http://chaoo.oschina.io/" target="_blank" rel="external">@郑超</a> 我现在用的这个<a href="https://github.com/chaooo/hexo-theme-BlueLake" target="_blank" rel="external">主题</a>就是他做的。</p><p>总言之，我的博客上线啦，后续我会把这几年在工作中遇到的问题，和解决的思路整理出来，希望能帮助到别人，同时也可以加深自己的记忆和理解。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;早在去年就有了写博客的想法，一方面，想把自己碎碎念的想法，和日常工作中遇到的问题和解决思路整理起来，好方便日后回顾。另外一方面，想借助互联网这个开放的平台，扩大自己的影响力，同时多结识志同道合的朋友。&lt;/p&gt;
+&lt;p&gt;去年的时候研究了一阵子 &lt;a href=&quot;https://
+      
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://amaork.me/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Test</title>
+    <link href="http://amaork.me/2017/10/21/Test/"/>
+    <id>http://amaork.me/2017/10/21/Test/</id>
+    <published>2017-10-21T10:46:45.000Z</published>
+    <updated>2017-10-24T13:50:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="This-is-a-test-page"><a href="#This-is-a-test-page" class="headerlink" title="This is a test page"></a>This is a test page</h1><h4 id="Quote"><a href="#Quote" class="headerlink" title="Quote"></a>Quote</h4><blockquote><p>Life never gets easier, yor just get better.</p></blockquote><h4 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></div><div class="line">print(<span class="string">"Hello World"</span>)</div></pre></td></tr></table></figure><h4 id="C"><a href="#C" class="headerlink" title="C"></a>C</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="built_in">printf</span>(<span class="string">"Hello World"</span>);</div><div class="line"><span class="keyword">return</span> main();</div><div class="line">&#125;</div></pre></td></tr></table></figure><h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><table><thead><tr><th>Header1</th><th>Header2</th></tr></thead><tbody><tr><td>cell1</td><td>cell2</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;This-is-a-test-page&quot;&gt;&lt;a href=&quot;#This-is-a-test-page&quot; class=&quot;headerlink&quot; title=&quot;This is a test page&quot;&gt;&lt;/a&gt;This is a test page&lt;/h1&gt;&lt;h4 i
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://amaork.me/2017/10/21/hello-world/"/>
+    <id>http://amaork.me/2017/10/21/hello-world/</id>
+    <published>2017-10-21T10:36:45.000Z</published>
+    <updated>2017-10-28T06:28:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
