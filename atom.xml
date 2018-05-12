@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://amaork.me/"/>
-  <updated>2018-05-11T16:35:14.174Z</updated>
+  <updated>2018-05-12T01:31:49.486Z</updated>
   <id>http://amaork.me/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://amaork.me/2018/05/11/%E7%94%A8GIMP%E5%88%B6%E4%BD%9C%E9%80%8F%E6%98%8E%E5%9B%BE%E6%A0%87/"/>
     <id>http://amaork.me/2018/05/11/用GIMP制作透明图标/</id>
     <published>2018-05-11T15:09:28.000Z</published>
-    <updated>2018-05-11T16:35:14.174Z</updated>
+    <updated>2018-05-12T01:31:49.486Z</updated>
     
-    <content type="html"><![CDATA[<p>最近做一个的 Qt 项目，需要放置一些图标按钮在工具栏上，让这些图标的背景变透明，然后更改工具栏的背景来实现一些效果。在网上找了一些素材用，但有些素材的背景是白色的而不是透明的，就需要有工具把白色的背景替换为透明的。使用 GMIP 制作的的过程非常简单：</p><h3 id="一、打开图标"><a href="#一、打开图标" class="headerlink" title="一、打开图标"></a>一、打开图标</h3><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2018-05-12 00.02.14.png" alt="屏幕快照 2018-05-12 00.02.14"></p><h3 id="二、添加透明图层"><a href="#二、添加透明图层" class="headerlink" title="二、添加透明图层"></a>二、添加透明图层</h3><p>在图标上右键，图层（Layer） -&gt; 透明（Transparency） -&gt; 添加透明通道 (Add Alpha Channel) 如果透明通道已存在，可以省略该步骤。</p><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2018-05-11 23.36.14.png" alt="屏幕快照 2018-05-11 23.36.14"></p><h3 id="三、选取背景颜色"><a href="#三、选取背景颜色" class="headerlink" title="三、选取背景颜色"></a>三、选取背景颜色</h3><p>点「吸管」工具，选中想要变透明的背景的颜色。将背景颜色的值复制下来，即下图红框中的值。</p><p><img src="http://oy6j734fq.bkt.clouddn.com/WX20180512-000548.png" alt="WX20180512-000548"></p><h3 id="四、背景颜色到透明"><a href="#四、背景颜色到透明" class="headerlink" title="四、背景颜色到透明"></a>四、背景颜色到透明</h3><p>在图标上右键，图层（Layer） -&gt; 透明（Transparency） -&gt; 颜色到透明 (Color to Alpha)。在弹出的对话框中，点来自（From）,然后在弹出的颜色到透明对话框中，粘贴上一步通过吸管获取的背景的颜色，点确定，然后开始转换。</p><p><img src="http://oy6j734fq.bkt.clouddn.com/WX20180512-000510.png" alt="WX20180512-000510"></p><h3 id="五、保存透明图标"><a href="#五、保存透明图标" class="headerlink" title="五、保存透明图标"></a>五、保存透明图标</h3><p>经过以上几步操作后，蓝色背景的图标就变成了透明图标，如下图所示。最后需要将图标导出，<strong>需要注意：只有 PNG 和 GIF 格式的图片支持透明通道，推荐 PNG 格式。</strong></p><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2018-05-12 00.21.09.png" alt="屏幕快照 2018-05-12 00.21.09"></p>]]></content>
+    <content type="html"><![CDATA[<p>最近做一个的 Qt 项目，需要放置一些图标按钮在工具栏上，让这些图标的背景变透明，然后更改工具栏的背景来实现一些效果。在网上找了一些素材用，但有些素材的背景是白色的而不是透明的，就需要有工具把白色的背景替换为透明的。使用 GMIP 制作的的过程非常简单：</p><h3 id="一、打开图标"><a href="#一、打开图标" class="headerlink" title="一、打开图标"></a>一、打开图标</h3><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2018-05-12 00.02.14.png" alt="屏幕快照 2018-05-12 00.02.14"></p><h3 id="二、添加透明图层"><a href="#二、添加透明图层" class="headerlink" title="二、添加透明图层"></a>二、添加透明图层</h3><p>在图标上右键，图层（Layer） -&gt; 透明（Transparency） -&gt; 添加透明通道 (Add Alpha Channel) 如果透明通道已存在，可以省略该步骤。</p><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2018-05-11 23.36.14.png" alt="屏幕快照 2018-05-11 23.36.14"></p><h3 id="三、选取背景颜色"><a href="#三、选取背景颜色" class="headerlink" title="三、选取背景颜色"></a>三、选取背景颜色</h3><p>点「吸管」工具，选中想要变透明的背景的颜色。将背景颜色的值复制下来，即下图红框中的值。</p><p><img src="http://oy6j734fq.bkt.clouddn.com/WX20180512-000510.png" alt="WX20180512-000510"></p><h3 id="四、背景颜色到透明"><a href="#四、背景颜色到透明" class="headerlink" title="四、背景颜色到透明"></a>四、背景颜色到透明</h3><p>在图标上右键，图层（Layer） -&gt; 透明（Transparency） -&gt; 颜色到透明 (Color to Alpha)。在弹出的对话框中，点来自（From）,然后在弹出的颜色到透明对话框中，粘贴上一步通过吸管获取的背景的颜色，点确定，然后开始转换。</p><p><img src="http://oy6j734fq.bkt.clouddn.com/WX20180512-000548.png" alt="WX20180512-000548"></p><h3 id="五、保存透明图标"><a href="#五、保存透明图标" class="headerlink" title="五、保存透明图标"></a>五、保存透明图标</h3><p>经过以上几步操作后，蓝色背景的图标就变成了透明图标，如下图所示。最后需要将图标导出，<strong>需要注意：只有 PNG 和 GIF 格式的图片支持透明通道，推荐 PNG 格式。</strong></p><p><img src="http://oy6j734fq.bkt.clouddn.com/屏幕快照 2018-05-12 00.21.09.png" alt="屏幕快照 2018-05-12 00.21.09"></p>]]></content>
     
     <summary type="html">
     
