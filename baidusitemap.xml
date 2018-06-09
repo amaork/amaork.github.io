@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://amaork.me/2018/06/09/macOS-%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD-NTFS-%E4%B8%BA%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90/</loc>
+    <lastmod>2018-06-09T09:51:07.483Z</lastmod>
+    <data>
+        <display>
+        <title>macOS 自动挂载 NTFS 为读写权限</title>
+        <pubTime>2018-06-09T08:27:24.000Z</pubTime>
+        
+        <tag>Shell</tag>
+         
+        <tag>macOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术分享" url="http://amaork.me/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://amaork.me/2018/06/04/Make-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2018-06-04T16:11:08.914Z</lastmod>
+    <data>
+        <display>
+        <title>Make 简明教程</title>
+        <pubTime>2018-06-04T14:57:57.000Z</pubTime>
+        
+        <tag>Make</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术分享" url="http://amaork.me/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://amaork.me/2018/05/11/%E7%94%A8-GIMP-%E5%88%B6%E4%BD%9C%E9%80%8F%E6%98%8E%E5%9B%BE%E6%A0%87/</loc>
+    <lastmod>2018-06-04T15:08:14.270Z</lastmod>
+    <data>
+        <display>
+        <title>用 GIMP 制作透明图标</title>
+        <pubTime>2018-05-11T15:09:28.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂项" url="http://amaork.me/categories/%E6%9D%82%E9%A1%B9/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://amaork.me/2018/05/27/%E3%80%8A%E6%8A%95%E8%B5%84%E4%B8%AD%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E4%BA%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2018-05-27T08:37:58.703Z</lastmod>
     <data>
@@ -42,7 +102,7 @@
 
     
   <url>
-    <loc>http://amaork.me/2018/01/07/2017%20%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/</loc>
+    <loc>http://amaork.me/2018/01/07/2017-%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2018-05-26T16:42:17.942Z</lastmod>
     <data>
         <display>
@@ -60,7 +120,7 @@
 
     
   <url>
-    <loc>http://amaork.me/2018/05/25/SQLite%20%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
+    <loc>http://amaork.me/2018/05/25/SQLite-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
     <lastmod>2018-05-26T16:41:55.961Z</lastmod>
     <data>
         <display>
@@ -75,24 +135,6 @@
            
              
               <breadCrumb title="技术分享" url="http://amaork.me/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://amaork.me/2018/05/11/%E7%94%A8%20GIMP%E5%88%B6%E4%BD%9C%E9%80%8F%E6%98%8E%E5%9B%BE%E6%A0%87%20/</loc>
-    <lastmod>2018-05-26T16:36:12.166Z</lastmod>
-    <data>
-        <display>
-        <title>用 GIMP 制作透明图标</title>
-        <pubTime>2018-05-11T15:09:28.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂项" url="http://amaork.me/categories/%E6%9D%82%E9%A1%B9/"/>
           
         </display>
     </data>
@@ -181,24 +223,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://amaork.me/2018/05/11/%E7%94%A8%20GIMP%20%E5%88%B6%E4%BD%9C%E9%80%8F%E6%98%8E%E5%9B%BE%E6%A0%87/</loc>
-    <lastmod>2018-05-25T15:12:33.000Z</lastmod>
-    <data>
-        <display>
-        <title>用 GIMP 制作透明图标</title>
-        <pubTime>2018-05-11T15:09:28.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂项" url="http://amaork.me/categories/%E6%9D%82%E9%A1%B9/"/>
-          
         </display>
     </data>
     </url>

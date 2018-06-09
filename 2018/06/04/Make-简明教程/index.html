@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Amaork's blog"><meta name="keywords" content="amaork, embedded software, raspberry pi, 嵌入式软件，嵌入式开发，树莓派"><title>Make 简明教程 | Amaork's Blog</title><link rel="stylesheet" type="text/css" href="//fonts.css.network/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Make 简明教程</h1><a id="logo" href="/.">Amaork's Blog</a><p class="description">It never gets easier, you just get better.</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> Home</i></a><a href="/archives/"><i class="fa fa-archive"> Archive</i></a><a href="/about/"><i class="fa fa-user"> About</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">Make 简明教程</h1><div class="post-meta"><a href="/2018/06/04/Make-简明教程/#comments" class="comment-count"></a><p><span class="date">Jun 04, 2018</span><span><a href="/categories/技术分享/" class="category">技术分享</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>Hits</i></i></span></p></div><div class="post-content"><p>习惯使用 IDE 或在 Windows 下做开发的人可能对 Make 不太了解，但在 Linux 下 make 是一个非常好用的自动化构建工具。</p>
+<h2 id="一、变量"><a href="#一、变量" class="headerlink" title="一、变量"></a>一、变量</h2><h3 id="1-1、自动变量"><a href="#1-1、自动变量" class="headerlink" title="1.1、自动变量"></a>1.1、自动变量</h3><pre><code>$*    不含扩展名的目标文件名称
+$+    所有的依赖文件，以空格分隔，并以出现的先后顺序排列
+$&lt;    第一个依赖文件的名称
+$?    所有时间戳比目标文件晚的依赖文件
+$@    目标文件的名称
+$^    所有不重复的依赖文件，以空格分隔
+$%    如果目标是归档成员，则该变量表示目标归档成员名称
+</code></pre><h3 id="1-2、内置变量"><a href="#1-2、内置变量" class="headerlink" title="1.2、内置变量"></a>1.2、内置变量</h3><pre><code>CC            指定编译器
+CPPFLAGS    编译和预处理选项，在使用默认规则的时候会自动调用
+</code></pre><h2 id="二、条件判断"><a href="#二、条件判断" class="headerlink" title="二、条件判断"></a>二、条件判断</h2><p>条件判断有一下两种，一种是判断一个变量是否定义，另一种是判断变量的值是否是期望的某个值，其语法如下：</p>
+<h3 id="2-1、判断是否定义"><a href="#2-1、判断是否定义" class="headerlink" title="2.1、判断是否定义"></a>2.1、判断是否定义</h3><pre><code>#ifdef varialbe-name
+    Do some thing
+#endif
+
+#ifndef varialbe-name
+    Do some thing
+#endif
+</code></pre><p>变量名只写写名称即可，不需要在名称上使用<code>$()</code>包围</p>
+<h3 id="2-2、判断是否是某个期望的值"><a href="#2-2、判断是否是某个期望的值" class="headerlink" title="2.2、判断是否是某个期望的值"></a>2.2、判断是否是某个期望的值</h3><pre><code>ifeq test
+    Do some thing
+endif
+
+ifneq test
+    Do some thing
+endif
+</code></pre><p>「test」的格式有两种：”a” “b”或 (a,b)，注意在使用第二种 (a,b) 语法的时候，「,」之后的空白是可以被忽略的，但其他部分的空白是有效的</p>
+<h2 id="三、宏和函数"><a href="#三、宏和函数" class="headerlink" title="三、宏和函数"></a>三、宏和函数</h2><h3 id="3-1、形参"><a href="#3-1、形参" class="headerlink" title="3.1、形参"></a>3.1、形参</h3><p>宏和函数的语法是类似的，不同的是函数可以有形参，形参在函数中是按照顺序来获取的，例如：</p>
+<pre><code>$1 表示函数中的第一个参数
+$2 表示函数中的第二个参数
+$N 表示函数中的第N个参数
+</code></pre><h3 id="3-2、函数和宏的定义"><a href="#3-2、函数和宏的定义" class="headerlink" title="3.2、函数和宏的定义"></a>3.2、函数和宏的定义</h3><pre><code>define macro_namr_or_function_name
+    函数或宏的内容
+endef
+</code></pre><h3 id="3-3、调用宏或函数"><a href="#3-3、调用宏或函数" class="headerlink" title="3.3、调用宏或函数"></a>3.3、调用宏或函数</h3><p>调用宏：</p>
+<pre><code>$(macro_name)
+</code></pre><p>调用函数：</p>
+<pre><code>$(call function_name[,param1.....])
+</code></pre><p>依次在函数名称之后加函数名称和<code>,</code>然后依次填写参数，参数之间使用逗号分隔，如果没有参数则函数名称后可以没有逗号。</p>
+<h2 id="四、内置字符串处理函数"><a href="#四、内置字符串处理函数" class="headerlink" title="四、内置字符串处理函数"></a>四、内置字符串处理函数</h2><h3 id="4-1、字符串过滤函数"><a href="#4-1、字符串过滤函数" class="headerlink" title="4.1、字符串过滤函数"></a>4.1、字符串过滤函数</h3><p>只有模式匹配的才能通过，或不匹配的才能通过</p>
+<pre><code>$(filter pattern...,text)       text 中只有匹配 pattern 的字符才会返回
+
+$(filter-out pattern...,text)   text中只有不匹配 pattern 的字符才会返回
+</code></pre><p>例：删除 CPPFLAGS 中的 -O2 优化选项</p>
+<pre><code>$(filter-out -O2,$(CPPFLAGS))
+</code></pre><h3 id="4-2、字符串替换函数"><a href="#4-2、字符串替换函数" class="headerlink" title="4.2、字符串替换函数"></a>4.2、字符串替换函数</h3><pre><code>$(subst search-string,replace-string,text)            在text中搜索search-string替换为replace-string
+
+$(patsubst search-pattern,replace-pattern,text)        在text中搜索匹配search-pattern的字符串，替换为replace-pattern
+
+**注意：subst是直接的替换函数，patsubst是先匹配模式，只有模式匹配成功之后才会替换。**
+</code></pre><h3 id="4-3、字符串查找函数"><a href="#4-3、字符串查找函数" class="headerlink" title="4.3、字符串查找函数"></a>4.3、字符串查找函数</h3><pre><code>$(findstring string,text)    
+</code></pre><p>在text中查找字符串string,如果找到则返回string(注意只是string，而不是包含string的text，而且string中不能包含通配符)</p>
+<h3 id="4-4、单词统计函数"><a href="#4-4、单词统计函数" class="headerlink" title="4.4、单词统计函数"></a>4.4、单词统计函数</h3><pre><code>$(word text)                返回 text 中单词的个数，单词以空白分割，可以是空格或 tab
+$(word n,text)              返回 text 中第 n 个单词，下标从 1 开始
+$(firstword text)           返回 text 中第一个单词，等同于$(word 1,text)
+$(wordlist start,end,text)  返回 text 中下标从 start 到 end 的单词，也包括 end
+</code></pre><h2 id="五、内置文件名处理函数"><a href="#五、内置文件名处理函数" class="headerlink" title="五、内置文件名处理函数"></a>五、内置文件名处理函数</h2><pre><code>$(wildcard pattern....)            返回 pattern 匹配的文件名称列表，如果没有匹配返回空字符串
+
+$(dir list...)                     返回 list 中指定的文件名的目录名称
+
+$(notdir name...)                  返回 name 中的文件名称，不包括目录名称
+
+$(suffix name...)                  返回文件的扩展名
+
+$(basename name...)                返回文件的名称除了扩展名
+
+$(addsuffix suffix,name...)        给 name 指定的文件名称增加后缀并返回
+
+$(addprefix prefix,name...)        给 name 指定的文件名称增加前缀并返回
+
+$(join prefix-list,suffix-list)    依次从 prefix-list 和 sufix-list 中取出相同位置的元素组合成新的字符返回
+</code></pre><h2 id="六、流控制函数"><a href="#六、流控制函数" class="headerlink" title="六、流控制函数"></a>六、流控制函数</h2><h3 id="6-1、条件测试语句"><a href="#6-1、条件测试语句" class="headerlink" title="6.1、条件测试语句"></a>6.1、条件测试语句</h3><p>条件测试，如果 <code>conditon</code> 中包含任何字符，包括空格执行 <code>then-part</code>, 如果为空执行 <code>else-part</code></p>
+<pre><code>$(if condition,then-part,else-part)        
+</code></pre><h3 id="6-2、错误警告控制"><a href="#6-2、错误警告控制" class="headerlink" title="6.2、错误警告控制"></a>6.2、错误警告控制</h3><p>输出错误消息并终止 make 并退出，退出代码为 2。输出的错误消息中包括 Makefile 的名称，当前的行数以及 <code>text</code></p>
+<pre><code>$(error text)        
+</code></pre><p>输出警告消息，格式和 error 一样，但是不会退出 Make 流程</p>
+<pre><code>$(warning text)
+</code></pre><h3 id="6-3、循环控制"><a href="#6-3、循环控制" class="headerlink" title="6.3、循环控制"></a>6.3、循环控制</h3><p>依次取出 <code>list</code> 中的内容，复制给 <code>variable</code>，然后再将 <code>variable</code>带入到 <code>body</code> 中执行</p>
+<pre><code>$(foreach variable,list,body)
+</code></pre><p>例：</p>
+<pre><code># 打印HOME和MAKE_VERSION变量    
+$(foreach name, HOME MAKE_VERSION,$(shell echo $($(name))))
+</code></pre><h2 id="七、杂项函数"><a href="#七、杂项函数" class="headerlink" title="七、杂项函数"></a>七、杂项函数</h2><pre><code>$(sort list)        按字母顺序返回list，同时删除重复的项目
+
+$(shell command)    在make的subshell中执行command指定的命令
+
+$(strip text)        去除text首位的空白，并将text中间的空白，多个空格，换行替换为单个空格返回
+
+$(origin variable)    返回变量variable的来源描述符，描述符通常有一下几种
+
+    undefined                变量未定义
+    default                    变量来自make的内置数据库，如CC，CPPFLAGS
+    environment                变量来自于系统环境
+    environment override    重写覆盖了的环境变量
+    file                    变量定义于Makefile
+    command line            变量定义于make命令行
+    override                变量被override指令重写覆盖
+    automatic                Make定义的自动变量如：$@ $^等
+</code></pre><h2 id="八、函数高级应用"><a href="#八、函数高级应用" class="headerlink" title="八、函数高级应用"></a>八、函数高级应用</h2><p>用户在设计自定义函数的时候，一个函数可能被不同的目标（target）调用，在函数处理的时候也有些细微的差别。例如:一个文件打包函数，在打包不同目标的时候，需要包含不同的文件，最终生成压缩包。那么针对不同的目标，可以定义自己的打包指令，目标调用打包函数打包文件的时候，会自动调用该目标自定义打包指令，从而实现不同的目标使用相同的打包函数。</p>
+<p>例：</p>
+<pre><code>define make_tarfile
+    echo Generating $1 please wait...
+    find $(INSTALL_PATH) -name &quot;*.svn&quot; | xargs rm -rf
+    $(call make_tarfile_cmd)
+    echo Target:$1 is done @$(INSTALL PATH)
+endef
+
+lib_target    :    make_tarfile_cmd = cd $(INSTALL_PATH) &amp;&amp; tar cvf lib.tar lib_path
+tools_target:    make_tarfile_cmd = cd $(INSTALL_PATH) &amp;&amp; tar cvf tool.tar tools_path
+</code></pre><h2 id="九、自动依赖检查"><a href="#九、自动依赖检查" class="headerlink" title="九、自动依赖检查"></a>九、自动依赖检查</h2><p>在编写程序的时候，通常需要在源文件中<code>include</code>各种各样的头文件。例如在编写C++程序的时候，就需要在<code>.cpp</code>文件中包含类的<code>.h</code>头文件，如果头文件发生改变，则程序需要重新编译。如果在<code>Makefile</code>中手工编写这个文件之间的依赖关系，过程将会十分繁琐，而且很容易出错。<code>gcc</code>提供了一种自动生成依赖关系的选项<code>-M</code>或<code>-MM</code>,使用方法如下：</p>
+<pre><code>$(CC) -M file.c &gt; file.d    
+</code></pre><p>上面的这个语句将<code>file.c</code>这个文件依赖的文件写入了<code>file.d</code>这个文件中，我们在<code>Makefile</code>中只需要将<code>file.d</code>包含进去就可以了，免去了手工编写依赖关系的麻烦。</p>
+<p>注意上面的选项<code>-M</code>是把<code>file.c</code>所有的依赖文件都写进去了，也包括系统头文件。但通常情况下，系统头文件是不会变动的，只需要包含用户自己生成的依赖文件就可以了，<code>-MM</code>选项就是这个功能，只是生成用户自己的依赖关系。例：</p>
+<pre><code>$(CC) -M file.c &gt; file.d
+</code></pre><p>如上例子中的一个文件一个文件的生成依赖关系太麻烦了，可以写一条规则让<code>Make</code>自动完成这些工作，并将依赖关系包含进来，例：</p>
+<pre><code>#Maklefile
+
+CC    =    g++
+CPPFLAGS = -Wall -g
+
+depend:$(wildcard *.c *.cpp *.h):
+    $(CC) $(CPPFLAGS) -MM $^ &gt; $@
+
+# -是为了忽略没有找到depend的警告
+-include depend
+</code></pre><h2 id="十、特殊目标（Special-Targets）"><a href="#十、特殊目标（Special-Targets）" class="headerlink" title="十、特殊目标（Special Targets）"></a>十、特殊目标（Special Targets）</h2><p>Make中有一些特殊的目标用来改变make执行时的默认行为，常用的有一下几种</p>
+<pre><code>.PHONY                用来指定目标并不是真正的文件，不需检查时间戳，例如 all clean install 等
+
+.SILENT                用来指定相关的目标在执行的时候不回显命令，类似于在命令前添加了@
+
+.IGNORE                用来指定相关的目标，如果在执行的时候出现错误，可以忽略继续执行
+
+.INTERMEDIATE        告知 Make 这些文件是在编程时产生的临时文件，在make执行结束后就可以删除了
+
+.PRECIOUS            告知 Make 这些文件是重要的文件，在 make 执行被中断的时候不会将其删除
+
+.DELETE_ON_ERROR    告知 Make 这些文件，在make的过程中，任何的目标执行失败，这些文件都会被删除 
+</code></pre><h2 id="十一、命令调节器（Command-Modifiers）"><a href="#十一、命令调节器（Command-Modifiers）" class="headerlink" title="十一、命令调节器（Command Modifiers）"></a>十一、命令调节器（Command Modifiers）</h2><p>Make 有一些命令调节器用来改变 make 执行该命令时的默认行为，常用的有一下几种：</p>
+<pre><code>@    用来告知 make 该条命令不会回显，这个调节器可以添加在单条指令上、函数名称前, 如果要
+
+-    用来告知 make 忽略该条名称的错误信息继续执行。例如之前的`-include`命令
+
++    用来告知 make 在执行该条命令的时候，即便是 make 指定 `-n` 选项（只打印不执行），该命令也会执行 
+</code></pre><h2 id="十二、杂项、注意事项"><a href="#十二、杂项、注意事项" class="headerlink" title="十二、杂项、注意事项"></a>十二、杂项、注意事项</h2><ul>
+<li><p>Make 选项</p>
+<pre><code>-n        显示 make 的执行过程，不真正的执行命令
+-s        使 make 的执行过程进入 SILENT 模式，所有的命令都不会回显
+-i        忽略 make 执行过程中出现的错误，继续执行
+</code></pre></li>
+<li><p>重写 all target</p>
+<p>  include 指令可以将其他 makefile 或依赖文件加载到当前 makefile 中，包括其他文件中的目标和变量。如果在 makefile 的 all 目标之前调用 include 加载其他文件。那么， 新 include 的文件中的第一个目标就会成为 makefile 的默认目标，而不是 all 指定的目标。这显然不是我们想要的，要避免这个情况，需要做一下处理：</p>
+<pre><code>all:
+include depend
+
+all:$(real_target)
+</code></pre></li>
+</ul>
+</div><div class="tags"><a href="/tags/Make/">Make</a></div><div class="post-share"></div><div class="post-nav"><a href="/2018/06/09/macOS-自动挂载-NTFS-为读写权限/" class="pre">macOS 自动挂载 NTFS 为读写权限</a><a href="/2018/05/27/《投资中最简单的事》读书笔记/" class="next">《投资中最简单的事》读书笔记</a></div><div id="comments"><div id="container"></div><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script><script>var gitment = new Gitment({
+  id: 'Mon Jun 04 2018 22:57:57 GMT+0800',
+  owner: 'amaork',
+  repo: 'amaork.github.io',
+  oauth: {
+    client_id: '0ea7d0d4a502978ac4c4',
+    client_secret: '2cc7482578f8a4a8129aec635283cf363f03ead0',
+  },
+})
+gitment.render('container')</script></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">Contents</i></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、变量"><span class="toc-text">一、变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1、自动变量"><span class="toc-text">1.1、自动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2、内置变量"><span class="toc-text">1.2、内置变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、条件判断"><span class="toc-text">二、条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1、判断是否定义"><span class="toc-text">2.1、判断是否定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2、判断是否是某个期望的值"><span class="toc-text">2.2、判断是否是某个期望的值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、宏和函数"><span class="toc-text">三、宏和函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1、形参"><span class="toc-text">3.1、形参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2、函数和宏的定义"><span class="toc-text">3.2、函数和宏的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3、调用宏或函数"><span class="toc-text">3.3、调用宏或函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、内置字符串处理函数"><span class="toc-text">四、内置字符串处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1、字符串过滤函数"><span class="toc-text">4.1、字符串过滤函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2、字符串替换函数"><span class="toc-text">4.2、字符串替换函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3、字符串查找函数"><span class="toc-text">4.3、字符串查找函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4、单词统计函数"><span class="toc-text">4.4、单词统计函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、内置文件名处理函数"><span class="toc-text">五、内置文件名处理函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、流控制函数"><span class="toc-text">六、流控制函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1、条件测试语句"><span class="toc-text">6.1、条件测试语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2、错误警告控制"><span class="toc-text">6.2、错误警告控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3、循环控制"><span class="toc-text">6.3、循环控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、杂项函数"><span class="toc-text">七、杂项函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八、函数高级应用"><span class="toc-text">八、函数高级应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九、自动依赖检查"><span class="toc-text">九、自动依赖检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十、特殊目标（Special-Targets）"><span class="toc-text">十、特殊目标（Special Targets）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十一、命令调节器（Command-Modifiers）"><span class="toc-text">十一、命令调节器（Command Modifiers）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#十二、杂项、注意事项"><span class="toc-text">十二、杂项、注意事项</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> Recent</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/06/09/macOS-自动挂载-NTFS-为读写权限/">macOS 自动挂载 NTFS 为读写权限</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/04/Make-简明教程/">Make 简明教程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/27/《投资中最简单的事》读书笔记/">《投资中最简单的事》读书笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/25/SQLite-常用操作/">SQLite 常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/05/11/用-GIMP-制作透明图标/">用 GIMP 制作透明图标</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/07/2017-年度读书总结/">2017 年度读书总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/05/iOS-Workflow-初体验/">iOS Workflow 初体验</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/Hexo-绑定二级域名/">Hexo 绑定二级域名</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/28/我的读书笔记变迁史/">我的读书笔记变迁史</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/21/博客正式上线/">博客正式上线</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> Categories</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术分享/">技术分享</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂项/">杂项</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">2</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> Tags</i></div><div class="tagcloud"><a href="/tags/Shell/" style="font-size: 15px;">Shell</a> <a href="/tags/macOS/" style="font-size: 15px;">macOS</a> <a href="/tags/Make/" style="font-size: 15px;">Make</a> <a href="/tags/SQLite/" style="font-size: 15px;">SQLite</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/投资/" style="font-size: 15px;">投资</a> <a href="/tags/iOS-Workflow/" style="font-size: 15px;">iOS Workflow</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> Archive</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> Blogroll</i></div><ul></ul><a href="https://portal.qiniu.com/signup?code=3lmr0re006lhu" title="七牛云" target="_blank">七牛云</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">RSS</a> |  <a href="/about/">About</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">amaork.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span><span> Hosted by<a href="https://pages.coding.me" style="font-weight: bold"> Coding Pages.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script></body></html>
