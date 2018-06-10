@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://amaork.me/2018/05/25/SQLite-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
+    
+    <lastmod>2018-06-09T11:28:13.766Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://amaork.me/2018/06/09/macOS-%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD-NTFS-%E4%B8%BA%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90/</loc>
     
-    <lastmod>2018-06-09T09:51:07.483Z</lastmod>
+    <lastmod>2018-06-09T10:07:55.923Z</lastmod>
     
   </url>
   
@@ -37,13 +44,6 @@
   </url>
   
   <url>
-    <loc>http://amaork.me/2018/05/25/SQLite-%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</loc>
-    
-    <lastmod>2018-05-26T16:41:55.961Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://amaork.me/projects/index.html</loc>
     
     <lastmod>2018-05-26T09:20:20.699Z</lastmod>
@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>http://amaork.me/2017/10/21/hello-world/</loc>
+    <loc>http://amaork.me/2017/10/21/Test/</loc>
     
     <lastmod>2018-05-26T09:20:20.690Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://amaork.me/2017/10/21/Test/</loc>
+    <loc>http://amaork.me/2017/10/21/hello-world/</loc>
     
     <lastmod>2018-05-26T09:20:20.690Z</lastmod>
     
