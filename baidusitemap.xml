@@ -216,21 +216,6 @@
 
     
   <url>
-    <loc>http://amaork.me/2017/10/21/hello-world/</loc>
-    <lastmod>2018-05-26T09:20:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-10-21T10:36:45.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://amaork.me/2017/10/21/%E5%8D%9A%E5%AE%A2%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF/</loc>
     <lastmod>2018-05-26T09:20:20.000Z</lastmod>
     <data>
@@ -243,6 +228,21 @@
              
               <breadCrumb title="随笔" url="http://amaork.me/categories/%E9%9A%8F%E7%AC%94/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://amaork.me/2017/10/21/hello-world/</loc>
+    <lastmod>2018-05-26T09:20:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-10-21T10:36:45.000Z</pubTime>
+        
+         
+           
         </display>
     </data>
     </url>
@@ -268,20 +268,6 @@
     </url>
 
     
-  <url>
-    <loc>http://amaork.me/2017/10/21/Test/</loc>
-    <lastmod>2018-05-26T09:20:20.000Z</lastmod>
-    <data>
-        <display>
-        <title>Test</title>
-        <pubTime>2017-10-21T10:46:45.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://amaork.me/2017/10/28/Hexo-%E7%BB%91%E5%AE%9A%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/</loc>
@@ -301,4 +287,18 @@
 
     
     
+  <url>
+    <loc>http://amaork.me/2017/10/21/Test/</loc>
+    <lastmod>2018-05-26T09:20:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Test</title>
+        <pubTime>2017-10-21T10:46:45.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
 </urlset>
